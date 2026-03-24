@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html lang="ko"><head>
+<html lang="ko">
+<head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Reserve — GREG & MATT</title><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Sans+KR:wght@300;400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+<title>예약 신청 — GREG & MATT</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Sans+KR:wght@300;400;500&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
 <style>
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -24,65 +26,294 @@ footer{padding:44px 48px 36px;border-top:1px solid #eee;display:flex;flex-direct
 .footer-sns a:hover{color:var(--text)}.footer-copy{font-size:0.62rem;color:#ccc}
 @media(max-width:768px){nav{padding:18px 0 0}.nav-links{gap:14px}footer{padding:36px 24px}}
 
-.reserve-wrap{max-width:640px;margin:0 auto;padding:160px 48px 100px}
-.reserve-desc{font-size:0.82rem;color:var(--muted);line-height:2;margin-bottom:52px;font-weight:300;font-family:'Noto Sans KR',sans-serif}
-.reserve-desc strong{color:var(--text);font-weight:400}
-.form-group{margin-bottom:24px}
-.form-group label{display:block;font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;font-weight:300}
+
+.page-wrap{max-width:720px;margin:0 auto;padding:110px 24px 100px}
+
+/* 안내 헤더 */
+.page-intro{margin-bottom:40px}
+.page-intro h1{font-family:var(--serif);font-size:1.6rem;font-weight:300;margin-bottom:16px}
+.page-intro p{font-family:'Noto Sans KR',sans-serif;font-size:0.82rem;font-weight:300;color:#555;line-height:2}
+
+/* 상품 안내 박스 */
+.product-box{border:1px solid #e0e0e0;padding:28px 24px;margin-bottom:32px;background:#fafaf8}
+.benefit-tag{font-size:0.65rem;color:var(--accent);font-weight:500;font-family:'Noto Sans KR',sans-serif;display:block;margin-bottom:6px}
+.benefit-main{font-family:'Noto Sans KR',sans-serif;font-size:1.2rem;font-weight:700;color:var(--text);margin-bottom:4px}
+.benefit-desc{font-size:0.76rem;color:var(--muted);font-family:'Noto Sans KR',sans-serif;line-height:1.7}
+.price-row{display:flex;align-items:center;margin:20px 0 16px}
+.price-role{font-family:'Noto Sans KR',sans-serif;font-size:1rem;font-weight:700;color:var(--text);margin-right:10px}
+.price-num{font-family:'Noto Sans KR',sans-serif;font-size:1rem;font-weight:700;color:#888}
+.price-sep{width:1px;height:20px;background:#ddd;margin:0 18px}
+.include-list{list-style:none;margin-bottom:0}
+.include-list li{font-family:'Noto Sans KR',sans-serif;font-size:0.8rem;color:#666;font-weight:300;padding:5px 0 5px 12px;position:relative;border-bottom:1px solid #f0f0f0}
+.include-list li:last-child{border-bottom:none}
+.include-list li::before{content:'·';position:absolute;left:0;color:var(--muted)}
+
+/* 공정계약 */
+.fairness-box{background:#f0f0ee;padding:16px 20px;text-align:center;margin-bottom:32px;font-family:'Noto Sans KR',sans-serif}
+.fairness-box strong{font-size:0.85rem;font-weight:500;color:var(--text);display:block;margin-bottom:4px}
+.fairness-box p{font-size:0.76rem;color:var(--muted);font-weight:300}
+
+/* 폼 섹션 */
+.form-section{margin-bottom:40px}
+.form-section-title{font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--muted);margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid #eee;font-weight:300}
+
+/* 라디오/체크박스 */
+.radio-group,.check-group{display:flex;flex-direction:column;gap:10px}
+.radio-item,.check-item{display:flex;align-items:center;gap:10px;cursor:pointer}
+.radio-item input,.check-item input{width:16px;height:16px;accent-color:var(--text);cursor:pointer;flex-shrink:0}
+.radio-item label,.check-item label{font-family:'Noto Sans KR',sans-serif;font-size:0.85rem;font-weight:300;color:var(--text);cursor:pointer;line-height:1.4}
+
+/* 인풋 */
+.form-group{margin-bottom:22px}
+.form-group label{display:block;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;font-weight:300}
+.form-group label .req{color:#c00;margin-left:2px}
 .form-group input,.form-group select,.form-group textarea{width:100%;padding:11px 0;border:none;border-bottom:1px solid #ddd;font-size:0.88rem;font-family:var(--sans);color:var(--text);background:transparent;outline:none;transition:border-color 0.2s;appearance:none}
 .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--text)}
-.form-group textarea{height:90px;resize:none}
+.form-group textarea{height:80px;resize:none}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-.form-divider{height:1px;background:#eee;margin:32px 0}
-.form-submit{width:100%;padding:14px;background:var(--text);color:#fff;border:none;font-size:0.68rem;letter-spacing:0.22em;text-transform:uppercase;cursor:pointer;font-family:var(--sans);margin-top:16px;transition:opacity 0.2s}
-.form-submit:hover{opacity:0.7}
-.form-note{margin-top:20px;font-size:0.75rem;color:var(--muted);line-height:1.8;text-align:center;font-weight:300;font-family:'Noto Sans KR',sans-serif}
-@media(max-width:768px){.reserve-wrap{padding:120px 24px 80px}.form-row{grid-template-columns:1fr}}
-</style></head><body>
+
+/* 약관 박스 */
+.terms-box{border:1px solid #ddd;padding:20px;margin-bottom:16px;max-height:280px;overflow-y:auto;background:#fafaf8}
+.terms-box h3{font-family:'Noto Sans KR',sans-serif;font-size:0.92rem;font-weight:700;margin-bottom:8px;color:var(--text)}
+.terms-box h4{font-family:'Noto Sans KR',sans-serif;font-size:0.82rem;font-weight:500;margin:16px 0 8px;color:var(--text)}
+.terms-box p{font-family:'Noto Sans KR',sans-serif;font-size:0.78rem;font-weight:300;color:#555;line-height:1.9;margin-bottom:8px}
+.terms-box ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:4px 16px;margin:8px 0}
+.terms-box ul li{font-family:'Noto Sans KR',sans-serif;font-size:0.76rem;color:#555;font-weight:300;padding-left:10px;position:relative}
+.terms-box ul li::before{content:'•';position:absolute;left:0;color:var(--muted)}
+.terms-box blockquote{border-left:2px solid #ddd;padding:8px 12px;margin:8px 0;font-family:'Noto Sans KR',sans-serif;font-size:0.75rem;color:var(--muted);font-weight:300;line-height:1.8}
+.terms-note{font-family:'Noto Sans KR',sans-serif;font-size:0.75rem;color:var(--muted);line-height:1.7;margin-top:8px}
+.agree-row{display:flex;align-items:center;gap:10px;margin-top:12px}
+.agree-row input{width:16px;height:16px;accent-color:var(--text);cursor:pointer;flex-shrink:0}
+.agree-row label{font-family:'Noto Sans KR',sans-serif;font-size:0.85rem;font-weight:400;color:var(--text);cursor:pointer}
+
+/* 제출 */
+.submit-btn{width:100%;padding:14px;background:var(--text);color:#fff;border:none;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;cursor:pointer;font-family:var(--sans);margin-top:8px;transition:opacity 0.2s}
+.submit-btn:hover{opacity:0.7}
+.submit-note{margin-top:16px;font-size:0.75rem;color:var(--muted);line-height:1.8;text-align:center;font-weight:300;font-family:'Noto Sans KR',sans-serif}
+
+/* 성공 메시지 */
+.success-msg{display:none;text-align:center;padding:60px 24px}
+.success-msg h2{font-family:var(--serif);font-size:1.8rem;font-weight:300;margin-bottom:16px}
+.success-msg p{font-family:'Noto Sans KR',sans-serif;font-size:0.88rem;color:var(--muted);line-height:2;font-weight:300}
+
+@media(max-width:768px){
+  .page-wrap{padding:100px 16px 80px}
+  .form-row{grid-template-columns:1fr}
+  .terms-box ul{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
 <nav id="nav" class="dark">
   <a href="index.html" class="nav-logo">
     <img class="logo-w" src="/uploads/common/logo-white.png" alt="GREG &amp; MATT">
     <img class="logo-d" src="/uploads/common/logo-dark.png" alt="GREG &amp; MATT">
   </a>
-  <ul class="nav-links"><li><a href="about.html">about</a></li><li><a href="wedding.html">wedding</a></li><li><a href="product.html">product</a></li><li><a href="faq.html">faq</a></li><li><a href="reserve.html" class=active>reserve</a></li></ul>
+  <ul class="nav-links">
+    <li><a href="about.html">about</a></li>
+    <li><a href="wedding.html">wedding</a></li>
+    <li><a href="product.html">product</a></li>
+    <li><a href="faq.html">faq</a></li>
+    <li><a href="reserve.html" class="active">reserve</a></li>
+  </ul>
 </nav>
-<div class="reserve-wrap">
-  <div style="font-size:0.6rem;letter-spacing:0.32em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;font-weight:300">reserve</div>
-  <h1 style="font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);font-weight:300;margin-bottom:32px">예약 신청</h1>
-  <p class="reserve-desc">예약 신청서 작성 후 예약금 <strong>20만원</strong> 입금 시<br>확인 후 계약서를 이메일로 발송해 드립니다.</p>
-  <div class="form-group">
-    <label>예약상품</label>
-    <select><option value="">선택해주세요</option><option>대표 촬영 (150만원)</option><option>실장 촬영 (120만원)</option></select>
+
+<div class="page-wrap">
+  <div class="page-intro">
+    <h1>그렉앤맷 본식스냅 촬영 계약서</h1>
+    <p>해당 계약서는 그렉앤맷에서 촬영 계약을 위한 온라인 계약서입니다.<br>
+    하단의 그렉앤맷 계약 약관을 클릭하시거나 스크롤을 내려 약관을 확인하신 후 동의하셔야 계약이 진행됩니다.<br>
+    약관 중 문의 사항이 있으시면 계약 전 미리 문의 바랍니다.</p>
   </div>
-  <div class="form-row">
-    <div class="form-group"><label>신랑 성함</label><input type="text" placeholder="홍길동"></div>
-    <div class="form-group"><label>신부 성함</label><input type="text" placeholder="김지은"></div>
+
+  <!-- 상품 안내 -->
+  <div class="product-box">
+    <span class="benefit-tag">그렉앤맷 예약 혜택</span>
+    <div class="benefit-main">혜택 최대 20만원</div>
+    <div class="benefit-desc">당일계약, 공휴일, 짝꿍할인 등 최대 20만원의 예약 혜택</div>
+    <div class="price-row">
+      <span class="price-role">대표 촬영</span><span class="price-num">150</span>
+      <div class="price-sep"></div>
+      <span class="price-role">실장 촬영</span><span class="price-num">120</span>
+    </div>
+    <ul class="include-list">
+      <li>1인 작가 촬영</li>
+      <li>대기실부터 본식 종료까지 (원판 포함)</li>
+      <li>원본 전체 JPG + 보정본 60장 이상</li>
+      <li>신랑신부님용 앨범 60p 1권 · 양가전달용 앨범 60p 2권</li>
+      <li>인화 20매 · 포스터 1매 · 액자 1개 · USB</li>
+    </ul>
   </div>
-  <div class="form-row">
-    <div class="form-group"><label>연락처</label><input type="tel" placeholder="010-0000-0000"></div>
-    <div class="form-group"><label>이메일</label><input type="email" placeholder="email@example.com"></div>
+  <div class="fairness-box">
+    <strong>그렉앤맷은 계약 경로에 따라 서비스가 달라지지 않습니다</strong>
+    <p>모든 신부님께 동일한 금액과 동일한 조건으로 공정하게 계약을 진행합니다.</p>
   </div>
-  <div class="form-divider"></div>
-  <div class="form-group"><label>상품 받으실 주소 (USB 패키지)</label><input type="text" placeholder="서울시 ..."></div>
-  <div class="form-row">
-    <div class="form-group"><label>예식장소</label><input type="text" placeholder="웨딩홀명"></div>
-    <div class="form-group"><label>예식날짜</label><input type="date"></div>
-  </div>
-  <div class="form-group"><label>예식 시작시간</label><input type="time"></div>
-  <div class="form-divider"></div>
-  <div class="form-group">
-    <label>추가 옵션</label>
-    <select>
-      <option value="">없음</option>
-      <option>심플 패키지 (−25)</option><option>데이터 패키지 (−30)</option>
-      <option>2인 작가 촬영 (+30)</option><option>테이블 인사 (+10)</option>
-      <option>2부 · 테이블인사 (+15)</option><option>메이크업 촬영 (+25)</option><option>폐백 (+10)</option>
-    </select>
-  </div>
-  <div class="form-group"><label>기타 문의사항</label><textarea placeholder="특별 요청사항이나 궁금한 점을 자유롭게 적어주세요."></textarea></div>
-  <button class="form-submit" id="formSubmit">작성완료</button>
-  <p class="form-note">문의 접수 후 1영업일 이내 연락드립니다.<br>카카오톡 채널로도 빠른 상담 가능합니다.</p>
+
+  <!-- 폼 -->
+  <form name="reserve" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="reserveForm">
+    <input type="hidden" name="form-name" value="reserve">
+    <input type="hidden" name="bot-field" style="display:none">
+
+    <!-- 상품 선택 -->
+    <div class="form-section">
+      <div class="form-section-title">상품 선택</div>
+      <div class="radio-group">
+        <div class="radio-item">
+          <input type="radio" name="상품선택" id="p1" value="대표 촬영 : 150만원" required>
+          <label for="p1">대표 촬영 : 150만원</label>
+        </div>
+        <div class="radio-item">
+          <input type="radio" name="상품선택" id="p2" value="실장 촬영 : 120만원">
+          <label for="p2">실장 촬영 : 120만원</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- 촬영 옵션 -->
+    <div class="form-section">
+      <div class="form-section-title">촬영 옵션 추가</div>
+      <div class="check-group">
+        <div class="check-item"><input type="checkbox" name="옵션" id="o1" value="심플 패키지 : -25만원"><label for="o1">심플 패키지 : -25만원</label></div>
+        <div class="check-item"><input type="checkbox" name="옵션" id="o2" value="데이터 패키지 : -30만원"><label for="o2">데이터 패키지 : -30만원</label></div>
+        <div class="check-item"><input type="checkbox" name="옵션" id="o3" value="2인 작가 촬영 : 30만원"><label for="o3">2인 작가 촬영 : 30만원</label></div>
+        <div class="check-item"><input type="checkbox" name="옵션" id="o4" value="테이블 인사 : 10만원"><label for="o4">테이블 인사 : 10만원</label></div>
+        <div class="check-item"><input type="checkbox" name="옵션" id="o5" value="2부 · 테이블인사 : 15만원"><label for="o5">2부 · 테이블인사 : 15만원</label></div>
+        <div class="check-item"><input type="checkbox" name="옵션" id="o6" value="메이크업 촬영 : 25만원"><label for="o6">메이크업 촬영 : 25만원</label></div>
+        <div class="check-item"><input type="checkbox" name="옵션" id="o7" value="폐백 촬영 : 10만원"><label for="o7">폐백 촬영 : 10만원</label></div>
+      </div>
+    </div>
+
+    <!-- 계약자 정보 -->
+    <div class="form-section">
+      <div class="form-section-title">계약자 정보</div>
+      <div class="form-group">
+        <label>계약자 명 <span class="req">*</span></label>
+        <input type="text" name="계약자명" placeholder="신부 또는 신랑 성함" required>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>계약자 전화번호 <span class="req">*</span></label>
+          <input type="tel" name="연락처" placeholder="010-0000-0000" required>
+        </div>
+        <div class="form-group">
+          <label>이메일 <span class="req">*</span></label>
+          <input type="email" name="이메일" placeholder="계약서 및 원본 수령 이메일" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>배우자 성함 및 연락처 <span class="req">*</span></label>
+        <input type="text" name="배우자정보" placeholder="예: 홍길동 010-0000-0000" required>
+      </div>
+      <div class="form-group">
+        <label>신랑 신부님의 영문 성함 <span class="req">*</span></label>
+        <input type="text" name="영문성함" placeholder="예: Kim Jieun / Hong Gildong" required>
+      </div>
+    </div>
+
+    <!-- 예식 정보 -->
+    <div class="form-section">
+      <div class="form-section-title">예식 정보</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>예식 날짜 <span class="req">*</span></label>
+          <input type="date" name="예식날짜" required>
+        </div>
+        <div class="form-group">
+          <label>예식 시간 <span class="req">*</span></label>
+          <input type="time" name="예식시간" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>예식 장소 및 예식홀 <span class="req">*</span></label>
+        <input type="text" name="예식장소" placeholder="예: 더채플앳청담 / 채플홀" required>
+      </div>
+      <div class="form-group">
+        <label>상품 받으실 주소 (USB·앨범 배송)</label>
+        <input type="text" name="배송주소" placeholder="서울시 ...">
+      </div>
+    </div>
+
+    <!-- 보정범위 동의 -->
+    <div class="form-section">
+      <div class="form-section-title">보정범위에 대한 동의 <span class="req">*</span></div>
+      <div class="terms-box">
+        <h3>인물 보정은 신랑·신부님 중심으로 진행합니다.</h3>
+        <p>직계 가족분들은 큰 잡티 위주로 보정됩니다.<br>
+        보정은 어색하지 않은 수준에서 '자연스러운 내 모습이 살아있는 정도'로 작업하고 있습니다.</p>
+        <p>원판 촬영은 플래시를 사용하고 있습니다. 따라서 자연스러움이 스냅사진과는 다소 차이가 있을 수 있습니다.<br>
+        웨딩홀 내부 조명 컨디션에 따라 편차가 있으나 이후 보정 작업을 통해 최대한 자연스러울 수 있도록 작업하고 있습니다.</p>
+        <h4>인물 보정 기본 작업 범위</h4>
+        <ul>
+          <li>색감 및 밝기</li><li>노이즈 완화</li>
+          <li>수직·수평 구도 조절 및 잘라내기</li><li>턱선 등 얼굴 윤곽 및 크기 보정</li>
+          <li>목·어깨·팔·허리·배 등 바디라인 보정</li><li>주름·점·잡티 등 제거</li>
+          <li>홀 직원·비상구 표시 지우기</li><li>다리 길이 등 비율 조정</li>
+        </ul>
+        <h4>보정 불가 범위</h4>
+        <ul>
+          <li>표정 바꾸기</li><li>치아 모양 보정</li><li>의상 주름 제거</li>
+          <li>입 모양 바꾸기</li><li>안구 색상 보정</li><li>안경 빛 반사</li>
+          <li>배경 및 사물 합성</li><li>메이크업 수정</li>
+        </ul>
+        <blockquote>의상 주름이나 안경 빛 반사는 별도의 요청이 없어서도 1차 보정 시 가능한 범위 내에서 기본적으로 처리하고 있습니다. 다만 사진에 따라 작업이 어려운 경우도 있을 수 있습니다.</blockquote>
+        <p class="terms-note">· 수정은 원하시는 내용을 모아 메일로 주시면 1회 요청이 가능합니다. (무료)<br>· 2회차부터는 재수정 비용이 발생합니다. (1컷 당 1만원)</p>
+      </div>
+      <div class="agree-row">
+        <input type="checkbox" id="agreeScope" name="보정범위동의" value="동의" required>
+        <label for="agreeScope">위 보정범위 안내를 확인하였으며 약관에 동의합니다.</label>
+      </div>
+    </div>
+
+    <!-- 예약 안내 동의 -->
+    <div class="form-section">
+      <div class="form-section-title">예약 안내 확인 <span class="req">*</span></div>
+      <div class="terms-box">
+        <h3>예약이 완료되면<br>예식 주 월요일에 최종 확인을 위해 연락드립니다.</h3>
+        <p>본 문서에 정보를 입력하신 뒤 예약금을 입금해 주시면 계약서를 작성하여 이메일로 전달드립니다. 계약서 내용을 확인하시고 별도의 이의가 없을 경우, 본 계약은 완료된 것으로 간주됩니다.</p>
+        <p>예약금 입금 후 72시간 이내에 계약 철회 요청 시에는 예약금 환불이 가능하나, 그 이후 취소 요청에 대해서는 환불이 불가하오니 신중한 예약 부탁드립니다.</p>
+        <p>또한 예식이 있는 주 월요일에 다시 한번 연락드려, 촬영 진행과 관련된 사전 안내를 드릴 예정입니다.</p>
+        <h3 style="margin-top:20px">예식 당일에는<br>웨딩홀에 여유 있게 도착하시는 것이 좋습니다.</h3>
+        <p>샵에서 교통 상황을 고려해 적절한 아웃 시간을 안내드리지만, 가능하다면 조금이라도 여유 있게 도착하시길 권장드립니다.</p>
+        <p>홀에 도착하시면 헬퍼 이모님께서 짐 정리를 도와주시고, 신랑님과 부모님께 꽃도 달아드리는 것을 비롯해 헤어 및 드레스 정리, 부케 등 여러 가지 준비가 진행됩니다. 이 과정은 예상보다 시간이 길어질 수 있습니다.</p>
+        <h3 style="margin-top:20px">예식이 끝난 후에는<br>4개월의 보정 작업 기간이 소요됩니다.</h3>
+        <p>원본은 예식 후 한 달 이내에 전달드립니다. 직접 셀렉을 진행해 주셔야 하며, 셀렉 완료 시점부터 보정 작업이 시작되어 4개월의 시간이 소요됩니다.</p>
+        <p>원본 수령 후 1개월 이내에 셀렉을 완료해 주셔야 이후 작업 일정에 차질이 없습니다. 셀렉 기한은 예식 후 12개월로 제한되며, 해당 기한이 경과할 경우 계약은 자동 종료됩니다.</p>
+      </div>
+      <div class="agree-row">
+        <input type="checkbox" id="agreeNotice" name="예약안내동의" value="동의" required>
+        <label for="agreeNotice">위 예약 안내 내용을 확인하였으며 동의합니다.</label>
+      </div>
+    </div>
+
+    <!-- 유입 경로 -->
+    <div class="form-section">
+      <div class="form-section-title">그렉앤맷을 처음 접하게 된 경로</div>
+      <div class="radio-group">
+        <div class="radio-item"><input type="radio" name="유입경로" id="r1" value="인스타그램"><label for="r1">인스타그램</label></div>
+        <div class="radio-item"><input type="radio" name="유입경로" id="r2" value="네이버 검색"><label for="r2">네이버 검색</label></div>
+        <div class="radio-item"><input type="radio" name="유입경로" id="r3" value="웨딩 카페"><label for="r3">웨딩 카페</label></div>
+        <div class="radio-item"><input type="radio" name="유입경로" id="r4" value="지인 추천"><label for="r4">지인 추천</label></div>
+        <div class="radio-item"><input type="radio" name="유입경로" id="r5" value="기타"><label for="r5">기타</label></div>
+      </div>
+    </div>
+
+    <!-- 선택 이유 -->
+    <div class="form-section">
+      <div class="form-section-title">그렉앤맷을 선택해주신 이유 (생략 가능)</div>
+      <div class="form-group">
+        <textarea name="선택이유" placeholder="간략히 말씀해 주세요."></textarea>
+      </div>
+    </div>
+
+    <button type="submit" class="submit-btn">작성완료</button>
+    <p class="submit-note">
+      작성 완료 후 예약금 <strong>20만원</strong>을 입금해 주시면 계약서를 이메일로 발송드립니다.<br>
+      입금 계좌 안내는 확인 연락 시 전달드립니다.<br>
+      카카오톡 채널 @그렉앤맷으로도 빠른 상담이 가능합니다.
+    </p>
+  </form>
 </div>
+
 <footer>
   <div class="footer-logo"><img src="/uploads/common/logo-dark.png" alt="GREG &amp; MATT"></div>
   <div class="footer-sns">
@@ -92,11 +323,49 @@ footer{padding:44px 48px 36px;border-top:1px solid #eee;display:flex;flex-direct
   </div>
   <div class="footer-copy">copyright © gregandmatt.com all rights reserved</div>
 </footer>
+
 <script>
 
 const nav=document.getElementById('nav');
 if(nav&&!nav.classList.contains('dark')){window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60)})}
 
-document.getElementById('formSubmit').addEventListener('click',function(){this.textContent='✓ 접수 완료';this.style.opacity='0.5';setTimeout(()=>{this.textContent='작성완료';this.style.opacity=''},3000)});
+// Netlify Forms 제출 처리
+const form = document.getElementById('reserveForm');
+form.addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = form.querySelector('.submit-btn');
+  btn.textContent = '제출 중...';
+  btn.style.opacity = '0.5';
+  
+  const formData = new FormData(form);
+  try {
+    const response = await fetch('/', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+      body: new URLSearchParams(formData).toString()
+    });
+    if(response.ok) {
+      form.innerHTML = `
+        <div style="text-align:center;padding:60px 0">
+          <div style="font-family:var(--serif);font-size:2rem;font-weight:300;margin-bottom:20px">접수 완료</div>
+          <p style="font-family:'Noto Sans KR',sans-serif;font-size:0.88rem;color:var(--muted);line-height:2.2;font-weight:300">
+            예약 신청이 완료되었습니다.<br>
+            예약금 <strong style="color:var(--text)">20만원</strong> 입금 후 계약서를 발송드립니다.<br><br>
+            입금 계좌 안내를 위해 곧 연락드리겠습니다.<br>
+            카카오톡 채널 @그렉앤맷으로도 문의 가능합니다.
+          </p>
+        </div>`;
+    } else {
+      btn.textContent = '작성완료';
+      btn.style.opacity = '';
+      alert('제출 중 오류가 발생했습니다. 다시 시도해주세요.');
+    }
+  } catch(err) {
+    btn.textContent = '작성완료';
+    btn.style.opacity = '';
+    alert('네트워크 오류가 발생했습니다. 다시 시도해주세요.');
+  }
+});
 </script>
-</body></html>
+</body>
+</html>
