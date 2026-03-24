@@ -1,0 +1,54 @@
+backend:
+  name: github
+  repo: gregandmattphotography/gregandmatt
+  branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+
+media_folder: "uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "weddings"
+    label: "웨딩 갤러리"
+    label_singular: "웨딩 포스팅"
+    folder: "data/weddings"
+    create: true
+    slug: "{{fields.id}}"
+    identifier_field: id
+    fields:
+      - label: "아이디 (영문, 하이픈만)"
+        name: "id"
+        widget: "string"
+        hint: "예: appel-jamsil (영문 소문자, 하이픈)"
+      - label: "웨딩홀 이름"
+        name: "name"
+        widget: "string"
+        hint: "예: 잠실 아펠가모"
+      - label: "썸네일 (갤러리 대표 사진)"
+        name: "thumbnail"
+        widget: "image"
+      - label: "사진 목록"
+        name: "photos"
+        widget: "list"
+        label_singular: "사진"
+        field:
+          label: "사진"
+          name: "photo"
+          widget: "image"
+
+  - name: "gallery_index"
+    label: "갤러리 목록 순서"
+    files:
+      - label: "갤러리 목록"
+        name: "weddings"
+        file: "data/weddings.json"
+        fields:
+          - label: "웨딩홀 목록"
+            name: "items"
+            widget: "list"
+            fields:
+              - {label: "아이디", name: "id", widget: "string"}
+              - {label: "웨딩홀명", name: "name", widget: "string"}
+              - {label: "썸네일", name: "thumbnail", widget: "image"}
+              - {label: "페이지 링크", name: "page", widget: "string"}

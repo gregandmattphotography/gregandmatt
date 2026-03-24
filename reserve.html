@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Reserve — GREG & MATT</title><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Sans+KR:wght@300;400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+<style>
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--white:#fff;--text:#1c1c1c;--muted:#999;--accent:#b09070;--light:#f8f8f6;--serif:'Cormorant Garamond',serif;--sans:'DM Sans','Noto Sans KR',sans-serif}
+html{scroll-behavior:smooth}body{background:var(--white);color:var(--text);font-family:var(--sans)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;flex-direction:column;align-items:center;padding:26px 0 0;transition:background 0.4s,padding 0.4s}
+nav.dark,nav.scrolled{background:rgba(255,255,255,0.96);backdrop-filter:blur(8px);border-bottom:1px solid #eee;padding:16px 0}
+.nav-logo{text-decoration:none;margin-bottom:10px;display:block}.nav-logo img{height:26px;width:auto}
+.logo-w{display:block}.logo-d{display:none}
+nav.dark .logo-w,nav.scrolled .logo-w{display:none}
+nav.dark .logo-d,nav.scrolled .logo-d{display:block}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:0.63rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.85);text-decoration:none;transition:color 0.2s;font-weight:300}
+nav.dark .nav-links a,nav.scrolled .nav-links a{color:var(--muted)}
+.nav-links a:hover,.nav-links a.active{color:#fff!important}
+nav.dark .nav-links a:hover,nav.dark .nav-links a.active,nav.scrolled .nav-links a:hover,nav.scrolled .nav-links a.active{color:var(--text)!important}
+footer{padding:44px 48px 36px;border-top:1px solid #eee;display:flex;flex-direction:column;align-items:center;gap:16px}
+.footer-logo img{height:28px;width:auto}.footer-sns{display:flex;gap:24px}
+.footer-sns a{font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s}
+.footer-sns a:hover{color:var(--text)}.footer-copy{font-size:0.62rem;color:#ccc}
+@media(max-width:768px){nav{padding:18px 0 0}.nav-links{gap:14px}footer{padding:36px 24px}}
+
+.reserve-wrap{max-width:640px;margin:0 auto;padding:160px 48px 100px}
+.reserve-desc{font-size:0.82rem;color:var(--muted);line-height:2;margin-bottom:52px;font-weight:300;font-family:'Noto Sans KR',sans-serif}
+.reserve-desc strong{color:var(--text);font-weight:400}
+.form-group{margin-bottom:24px}
+.form-group label{display:block;font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;font-weight:300}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:11px 0;border:none;border-bottom:1px solid #ddd;font-size:0.88rem;font-family:var(--sans);color:var(--text);background:transparent;outline:none;transition:border-color 0.2s;appearance:none}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--text)}
+.form-group textarea{height:90px;resize:none}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.form-divider{height:1px;background:#eee;margin:32px 0}
+.form-submit{width:100%;padding:14px;background:var(--text);color:#fff;border:none;font-size:0.68rem;letter-spacing:0.22em;text-transform:uppercase;cursor:pointer;font-family:var(--sans);margin-top:16px;transition:opacity 0.2s}
+.form-submit:hover{opacity:0.7}
+.form-note{margin-top:20px;font-size:0.75rem;color:var(--muted);line-height:1.8;text-align:center;font-weight:300;font-family:'Noto Sans KR',sans-serif}
+@media(max-width:768px){.reserve-wrap{padding:120px 24px 80px}.form-row{grid-template-columns:1fr}}
+</style></head><body>
+<nav id="nav" class="dark">
+  <a href="index.html" class="nav-logo">
+    <img class="logo-w" src="/uploads/common/logo-white.png" alt="GREG &amp; MATT">
+    <img class="logo-d" src="/uploads/common/logo-dark.png" alt="GREG &amp; MATT">
+  </a>
+  <ul class="nav-links"><li><a href="about.html">about</a></li><li><a href="wedding.html">wedding</a></li><li><a href="product.html">product</a></li><li><a href="faq.html">faq</a></li><li><a href="reserve.html" class=active>reserve</a></li></ul>
+</nav>
+<div class="reserve-wrap">
+  <div style="font-size:0.6rem;letter-spacing:0.32em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;font-weight:300">reserve</div>
+  <h1 style="font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);font-weight:300;margin-bottom:32px">예약 신청</h1>
+  <p class="reserve-desc">예약 신청서 작성 후 예약금 <strong>20만원</strong> 입금 시<br>확인 후 계약서를 이메일로 발송해 드립니다.</p>
+  <div class="form-group">
+    <label>예약상품</label>
+    <select><option value="">선택해주세요</option><option>대표 촬영 (150만원)</option><option>실장 촬영 (120만원)</option></select>
+  </div>
+  <div class="form-row">
+    <div class="form-group"><label>신랑 성함</label><input type="text" placeholder="홍길동"></div>
+    <div class="form-group"><label>신부 성함</label><input type="text" placeholder="김지은"></div>
+  </div>
+  <div class="form-row">
+    <div class="form-group"><label>연락처</label><input type="tel" placeholder="010-0000-0000"></div>
+    <div class="form-group"><label>이메일</label><input type="email" placeholder="email@example.com"></div>
+  </div>
+  <div class="form-divider"></div>
+  <div class="form-group"><label>상품 받으실 주소 (USB 패키지)</label><input type="text" placeholder="서울시 ..."></div>
+  <div class="form-row">
+    <div class="form-group"><label>예식장소</label><input type="text" placeholder="웨딩홀명"></div>
+    <div class="form-group"><label>예식날짜</label><input type="date"></div>
+  </div>
+  <div class="form-group"><label>예식 시작시간</label><input type="time"></div>
+  <div class="form-divider"></div>
+  <div class="form-group">
+    <label>추가 옵션</label>
+    <select>
+      <option value="">없음</option>
+      <option>심플 패키지 (−25)</option><option>데이터 패키지 (−30)</option>
+      <option>2인 작가 촬영 (+30)</option><option>테이블 인사 (+10)</option>
+      <option>2부 · 테이블인사 (+15)</option><option>메이크업 촬영 (+25)</option><option>폐백 (+10)</option>
+    </select>
+  </div>
+  <div class="form-group"><label>기타 문의사항</label><textarea placeholder="특별 요청사항이나 궁금한 점을 자유롭게 적어주세요."></textarea></div>
+  <button class="form-submit" id="formSubmit">작성완료</button>
+  <p class="form-note">문의 접수 후 1영업일 이내 연락드립니다.<br>카카오톡 채널로도 빠른 상담 가능합니다.</p>
+</div>
+<footer>
+  <div class="footer-logo"><img src="/uploads/common/logo-dark.png" alt="GREG &amp; MATT"></div>
+  <div class="footer-sns">
+    <a href="https://pf.kakao.com/_DQwxgT/chat" target="_blank">kakao</a>
+    <a href="http://instagram.com/gregandmatt" target="_blank">instagram</a>
+    <a href="https://blog.naver.com/gregandmatt" target="_blank">naver blog</a>
+  </div>
+  <div class="footer-copy">copyright © gregandmatt.com all rights reserved</div>
+</footer>
+<script>
+
+const nav=document.getElementById('nav');
+if(nav&&!nav.classList.contains('dark')){window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60)})}
+
+document.getElementById('formSubmit').addEventListener('click',function(){this.textContent='✓ 접수 완료';this.style.opacity='0.5';setTimeout(()=>{this.textContent='작성완료';this.style.opacity=''},3000)});
+</script>
+</body></html>

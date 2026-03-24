@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>About — GREG & MATT</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Sans+KR:wght@300;400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+<style>
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --white:#fff;--text:#1c1c1c;--muted:#999;--accent:#b09070;
+  --light:#f8f8f6;--serif:'Cormorant Garamond',serif;
+  --sans:'DM Sans','Noto Sans KR',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--white);color:var(--text);font-family:var(--sans)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;flex-direction:column;align-items:center;padding:26px 0 0;transition:background 0.4s,padding 0.4s}
+nav.dark,nav.scrolled{background:rgba(255,255,255,0.96);backdrop-filter:blur(8px);border-bottom:1px solid #eee;padding:16px 0}
+.nav-logo{text-decoration:none;margin-bottom:10px;display:block}
+.nav-logo img{height:26px;width:auto}
+.logo-w{display:block}.logo-d{display:none}
+nav.dark .logo-w,nav.scrolled .logo-w{display:none}
+nav.dark .logo-d,nav.scrolled .logo-d{display:block}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:0.63rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.85);text-decoration:none;transition:color 0.2s;font-weight:300}
+nav.dark .nav-links a,nav.scrolled .nav-links a{color:var(--muted)}
+.nav-links a:hover,.nav-links a.active{color:#fff!important}
+nav.dark .nav-links a:hover,nav.dark .nav-links a.active,nav.scrolled .nav-links a:hover,nav.scrolled .nav-links a.active{color:var(--text)!important}
+footer{padding:44px 48px 36px;border-top:1px solid #eee;display:flex;flex-direction:column;align-items:center;gap:16px}
+.footer-logo img{height:28px;width:auto}
+.footer-sns{display:flex;gap:24px}
+.footer-sns a{font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s}
+.footer-sns a:hover{color:var(--text)}
+.footer-copy{font-size:0.62rem;color:#ccc}
+@media(max-width:768px){nav{padding:18px 0 0}.nav-links{gap:14px}footer{padding:36px 24px}}
+
+.about-wrap{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:120px 24px 80px}
+.about-photo{width:100%;max-width:520px;aspect-ratio:1/1;object-fit:cover;display:block;margin:0 auto 52px}
+.about-text-wrap{max-width:520px;width:100%;text-align:center}
+.about-headline{font-family:'Noto Sans KR',sans-serif;font-size:0.92rem;font-weight:400;color:var(--text);line-height:1.9;margin-bottom:28px}
+.about-divider{width:32px;height:1px;background:#ddd;margin:0 auto 28px}
+.about-body{font-family:'Noto Sans KR',sans-serif;font-size:0.85rem;font-weight:300;color:#666;line-height:2.1;margin-bottom:48px}
+.btn-kakao{display:inline-block;padding:13px 36px;background:var(--text);color:#fff;text-decoration:none;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;transition:opacity 0.2s}
+.btn-kakao:hover{opacity:0.7}
+@media(max-width:768px){.about-photo{max-width:100%}}
+</style>
+</head>
+<body>
+<nav id="nav" class="dark">
+  <a href="index.html" class="nav-logo">
+    <img class="logo-w" src="/uploads/common/logo-white.png" alt="GREG &amp; MATT">
+    <img class="logo-d" src="/uploads/common/logo-dark.png" alt="GREG &amp; MATT">
+  </a>
+  <ul class="nav-links"><li><a href="about.html" class=active>about</a></li><li><a href="wedding.html">wedding</a></li><li><a href="product.html">product</a></li><li><a href="faq.html">faq</a></li><li><a href="reserve.html">reserve</a></li></ul>
+</nav>
+<div class="about-wrap">
+  <img class="about-photo" src="/uploads/common/gnma.jpg" alt="GREG &amp; MATT Photography">
+  <div class="about-text-wrap">
+    <p class="about-headline">그렉앤맷은 10년 넘게 본식스냅만 촬영해온<br>본식스냅 전문 촬영팀입니다.</p>
+    <div class="about-divider"></div>
+    <p class="about-body">
+      신랑 신부님과의 신뢰는 고스란히 저희 사진에 담길 거라 믿고 있습니다.<br><br>
+      '그렉앤맷'의 이름으로 아직 단 한 건의 컴플레인도 없었다는 점은<br>저희에게 소중한 자부심입니다.<br><br>
+      운이 좋게도 항상 좋은 분들을 많이 만나 가능했던 일인 것도<br>잘 알고 또 감사하게 생각하겠습니다.<br><br>
+      긴 고민 끝의 신중한 선택임을 잘 알고 있습니다.<br><br>
+      고민의 무게를 잊지 않고 그 날의 기억이 영원하도록 함께하겠습니다.
+    </p>
+    <a class="btn-kakao" href="https://pf.kakao.com/_DQwxgT/chat" target="_blank">카카오톡 채널 문의하기</a>
+  </div>
+</div>
+<footer>
+  <div class="footer-logo"><img src="/uploads/common/logo-dark.png" alt="GREG &amp; MATT"></div>
+  <div class="footer-sns">
+    <a href="https://pf.kakao.com/_DQwxgT/chat" target="_blank">kakao</a>
+    <a href="http://instagram.com/gregandmatt" target="_blank">instagram</a>
+    <a href="https://blog.naver.com/gregandmatt" target="_blank">naver blog</a>
+  </div>
+  <div class="footer-copy">copyright © gregandmatt.com all rights reserved</div>
+</footer>
+<script>
+const nav=document.getElementById('nav');
+if(nav&&!nav.classList.contains('dark')){
+  window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60)});
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Product — GREG & MATT</title><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Sans+KR:wght@300;400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+<style>
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--white:#fff;--text:#1c1c1c;--muted:#999;--accent:#b09070;--light:#f8f8f6;--serif:'Cormorant Garamond',serif;--sans:'DM Sans','Noto Sans KR',sans-serif}
+html{scroll-behavior:smooth}body{background:var(--white);color:var(--text);font-family:var(--sans)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;flex-direction:column;align-items:center;padding:26px 0 0;transition:background 0.4s,padding 0.4s}
+nav.dark,nav.scrolled{background:rgba(255,255,255,0.96);backdrop-filter:blur(8px);border-bottom:1px solid #eee;padding:16px 0}
+.nav-logo{text-decoration:none;margin-bottom:10px;display:block}.nav-logo img{height:26px;width:auto}
+.logo-w{display:block}.logo-d{display:none}
+nav.dark .logo-w,nav.scrolled .logo-w{display:none}
+nav.dark .logo-d,nav.scrolled .logo-d{display:block}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:0.63rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.85);text-decoration:none;transition:color 0.2s;font-weight:300}
+nav.dark .nav-links a,nav.scrolled .nav-links a{color:var(--muted)}
+.nav-links a:hover,.nav-links a.active{color:#fff!important}
+nav.dark .nav-links a:hover,nav.dark .nav-links a.active,nav.scrolled .nav-links a:hover,nav.scrolled .nav-links a.active{color:var(--text)!important}
+footer{padding:44px 48px 36px;border-top:1px solid #eee;display:flex;flex-direction:column;align-items:center;gap:16px}
+.footer-logo img{height:28px;width:auto}.footer-sns{display:flex;gap:24px}
+.footer-sns a{font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s}
+.footer-sns a:hover{color:var(--text)}.footer-copy{font-size:0.62rem;color:#ccc}
+@media(max-width:768px){nav{padding:18px 0 0}.nav-links{gap:14px}footer{padding:36px 24px}}
+
+.product-wrap{max-width:680px;margin:0 auto;padding:100px 24px 100px}
+.product-hero{width:100%;display:block;margin-bottom:48px}
+.benefit-box{border:1px solid #e0e0e0;padding:20px 24px;margin-bottom:40px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.benefit-tag{font-size:0.65rem;color:var(--accent);font-weight:400;font-family:'Noto Sans KR',sans-serif;margin-bottom:4px;display:block}
+.benefit-main{font-family:'Noto Sans KR',sans-serif;font-size:1.25rem;font-weight:700;color:var(--text)}
+.benefit-desc{font-size:0.78rem;color:var(--muted);font-family:'Noto Sans KR',sans-serif;line-height:1.7}
+.price-row{display:flex;align-items:center;margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid #eee}
+.price-role{font-family:'Noto Sans KR',sans-serif;font-size:1.15rem;font-weight:700;color:var(--text);margin-right:14px}
+.price-num{font-family:'Noto Sans KR',sans-serif;font-size:1.15rem;font-weight:700;color:var(--muted)}
+.price-sep{width:1px;height:28px;background:#ddd;margin:0 24px}
+.include-list{list-style:none;margin-bottom:40px}
+.include-list li{font-family:'Noto Sans KR',sans-serif;font-size:0.85rem;color:#555;font-weight:300;padding:8px 0 8px 14px;position:relative;line-height:1.6;border-bottom:1px solid #f5f5f5}
+.include-list li::before{content:'·';position:absolute;left:0;color:var(--muted)}
+.opt-table{width:100%;border-collapse:collapse;margin-bottom:40px}
+.opt-table tr{border-bottom:1px solid #f0f0f0}.opt-table tr:last-child{border-bottom:none}
+.opt-table td{padding:14px 0;font-family:'Noto Sans KR',sans-serif;font-size:0.88rem;font-weight:300;vertical-align:middle}
+.opt-name{font-weight:700;color:var(--text);width:140px}.opt-desc{color:var(--muted);font-size:0.8rem;padding-left:12px}
+.opt-price{text-align:right;white-space:nowrap;font-weight:700;font-size:0.95rem}
+.opt-price.minus{color:var(--accent)}.opt-price.plus{color:var(--text)}
+.section-gap{height:1px;background:#eee;margin:8px 0 24px}
+.item-block{margin-bottom:48px}.item-divider{height:1px;background:#f0f0f0;margin:40px 0}
+.item-imgs{display:flex;gap:8px;margin-bottom:16px}.item-imgs img{flex:1;width:0;object-fit:cover;display:block}
+.item-imgs.single img{width:100%;flex:none}
+.item-desc{font-family:'Noto Sans KR',sans-serif;font-size:0.88rem;font-weight:300;color:#555;line-height:2}
+.fairness{background:#f8f8f6;padding:28px 24px;text-align:center;margin-bottom:48px}
+.fairness-title{font-family:'Noto Sans KR',sans-serif;font-size:0.92rem;font-weight:700;color:var(--text);margin-bottom:10px}
+.fairness-desc{font-family:'Noto Sans KR',sans-serif;font-size:0.8rem;color:var(--muted);line-height:1.9;font-weight:300}
+.reserve-cta{text-align:center}
+.btn-reserve{display:inline-block;padding:13px 40px;background:var(--text);color:#fff;text-decoration:none;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;transition:opacity 0.2s}
+.btn-reserve:hover{opacity:0.7}
+@media(max-width:768px){.product-wrap{padding:100px 16px 80px}.opt-desc{display:none}}
+</style></head><body>
+<nav id="nav" class="dark">
+  <a href="index.html" class="nav-logo">
+    <img class="logo-w" src="/uploads/common/logo-white.png" alt="GREG &amp; MATT">
+    <img class="logo-d" src="/uploads/common/logo-dark.png" alt="GREG &amp; MATT">
+  </a>
+  <ul class="nav-links"><li><a href="about.html">about</a></li><li><a href="wedding.html">wedding</a></li><li><a href="product.html" class=active>product</a></li><li><a href="faq.html">faq</a></li><li><a href="reserve.html">reserve</a></li></ul>
+</nav>
+<div class="product-wrap">
+  <img class="product-hero" src="/uploads/common/gnma.jpg" alt="GREG &amp; MATT">
+  <div class="benefit-box">
+    <div><span class="benefit-tag">그렉앤맷 예약 혜택</span><span class="benefit-main">혜택 최대 20만원</span></div>
+    <div class="benefit-desc">당일계약, 공휴일, 짝꿍할인 등<br>최대 20만원의 예약 혜택</div>
+  </div>
+  <div class="price-row">
+    <div><span class="price-role">대표 촬영</span><span class="price-num">150</span></div>
+    <div class="price-sep"></div>
+    <div><span class="price-role">실장 촬영</span><span class="price-num">120</span></div>
+  </div>
+  <ul class="include-list">
+    <li>1인 작가 촬영</li><li>대기실부터 본식 종료까지 (원판 포함)</li>
+    <li>원본 전체 JPG + 보정본 60장 이상</li><li>신랑신부님용 앨범 60p 1권</li>
+    <li>양가전달용 앨범 60p 2권</li><li>인화 20매 · 포스터 1매 · 액자 1개 · USB</li>
+  </ul>
+  <table class="opt-table">
+    <tr><td class="opt-name">심플 패키지</td><td class="opt-desc">보정본 40장 + 신랑 신부 앨범 1권</td><td class="opt-price minus">− 25</td></tr>
+    <tr><td class="opt-name">데이터 패키지</td><td class="opt-desc">보정본 40장 JPG 데이터 전달</td><td class="opt-price minus">− 30</td></tr>
+  </table>
+  <div class="section-gap"></div>
+  <table class="opt-table">
+    <tr><td class="opt-name">2인 작가 촬영</td><td class="opt-desc">보정본 10장 &amp; 앨범 10p 추가</td><td class="opt-price plus">+ 30</td></tr>
+    <tr><td class="opt-name">테이블 인사</td><td class="opt-desc">예식 후 연회장 인사</td><td class="opt-price plus">+ 10</td></tr>
+    <tr><td class="opt-name">2부 · 테이블인사</td><td class="opt-desc">2부 예식과 연회장 인사</td><td class="opt-price plus">+ 15</td></tr>
+    <tr><td class="opt-name">메이크업 촬영</td><td class="opt-desc"></td><td class="opt-price plus">+ 25</td></tr>
+    <tr><td class="opt-name">폐백</td><td class="opt-desc"></td><td class="opt-price plus">+ 10</td></tr>
+  </table>
+  <div class="item-divider"></div>
+  <div class="item-block">
+    <div class="item-imgs">
+      <img src="/uploads/product/album_cover.jpg" alt="앨범 커버">
+      <img src="/uploads/product/album_open.jpg" alt="앨범 내지">
+    </div>
+    <p class="item-desc">그렉앤맷이 정성껏 마련한 패키지를 열어보시면 세 권의 앨범과 인화 사진, 자작나무 액자, 데이터를 담은 USB 그리고 스냅포스터를 보실 수 있습니다.<br><br>앨범은 신랑 신부님용과 양가 부모님용 총 3권이 제공됩니다. 데미지에 강한 이탈리아산 표지 원단으로 제작되며 내지는 후지 크리스탈 아카이브 딥 매트 용지가 사용됩니다.</p>
+  </div>
+  <div class="item-divider"></div>
+  <div class="item-block">
+    <div class="item-imgs single"><img src="/uploads/product/frame.jpg" alt="액자"></div>
+    <p class="item-desc">자작나무 합판으로 견고하게 만든 프레임리스 우드 액자입니다.<br>5x7 inch 사이즈로 세워놓을 수도 있고 벽에 걸 수도 있도록 제작되었습니다.</p>
+  </div>
+  <div class="item-divider"></div>
+  <div class="item-block">
+    <div class="item-imgs single"><img src="/uploads/product/prints.jpg" alt="인화사진"></div>
+    <p class="item-desc">5x7 inch 크기의 인화 사진 20매를 함께 드립니다.<br>마치 엽서와 비슷한 느낌의 무광 재질로 인쇄 제작됩니다.</p>
+  </div>
+  <div class="item-divider"></div>
+  <div class="item-block">
+    <div class="item-imgs single"><img src="/uploads/product/usb.jpg" alt="USB"></div>
+    <p class="item-desc">원본과 보정본 데이터는 앞선 셀렉의 과정 중 이메일로 모두 보내드립니다만<br>모든 작업이 완료되면 보정본 파일은 그렉앤맷의 로고가 새겨진 USB에 담아 한 번 더 안전하게 보관해 드립니다.</p>
+  </div>
+  <div class="item-divider"></div>
+  <div class="item-block">
+    <div class="item-imgs single"><img src="/uploads/product/poster.jpg" alt="스냅포스터"></div>
+    <p class="item-desc">A3사이즈의 스냅포스터입니다.<br>아름다운 추억을 포스터에 담아 조금 더 특별한 느낌으로 간직하실 수 있도록 그렉앤맷이 제작해 드립니다.</p>
+  </div>
+  <div class="item-divider"></div>
+  <div class="fairness">
+    <div class="fairness-title">그렉앤맷은 계약 경로에 따라 서비스가 달라지지 않습니다</div>
+    <div class="fairness-desc">모든 신부님께 동일한 금액과 동일한 조건으로<br>공정하게 계약을 진행합니다.</div>
+  </div>
+  <div class="reserve-cta"><a href="reserve.html" class="btn-reserve">예약 신청하기</a></div>
+</div>
+<footer>
+  <div class="footer-logo"><img src="/uploads/common/logo-dark.png" alt="GREG &amp; MATT"></div>
+  <div class="footer-sns">
+    <a href="https://pf.kakao.com/_DQwxgT/chat" target="_blank">kakao</a>
+    <a href="http://instagram.com/gregandmatt" target="_blank">instagram</a>
+    <a href="https://blog.naver.com/gregandmatt" target="_blank">naver blog</a>
+  </div>
+  <div class="footer-copy">copyright © gregandmatt.com all rights reserved</div>
+</footer>
+<script>
+const nav=document.getElementById('nav');
+if(nav&&!nav.classList.contains('dark')){window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60)})}
+</script>
+</body></html>

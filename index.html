@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>GREG & MATT — PHOTOGRAPHY</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Sans+KR:wght@300;400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<style>
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --white:#fff;--text:#1c1c1c;--muted:#999;--accent:#b09070;
+  --light:#f8f8f6;--serif:'Cormorant Garamond',serif;
+  --sans:'DM Sans','Noto Sans KR',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--white);color:var(--text);font-family:var(--sans)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;flex-direction:column;align-items:center;padding:26px 0 0;transition:background 0.4s,padding 0.4s}
+nav.dark,nav.scrolled{background:rgba(255,255,255,0.96);backdrop-filter:blur(8px);border-bottom:1px solid #eee;padding:16px 0}
+.nav-logo{text-decoration:none;margin-bottom:10px;display:block}
+.nav-logo img{height:26px;width:auto}
+.logo-w{display:block}.logo-d{display:none}
+nav.dark .logo-w,nav.scrolled .logo-w{display:none}
+nav.dark .logo-d,nav.scrolled .logo-d{display:block}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:0.63rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.85);text-decoration:none;transition:color 0.2s;font-weight:300}
+nav.dark .nav-links a,nav.scrolled .nav-links a{color:var(--muted)}
+.nav-links a:hover,.nav-links a.active{color:#fff!important}
+nav.dark .nav-links a:hover,nav.dark .nav-links a.active,nav.scrolled .nav-links a:hover,nav.scrolled .nav-links a.active{color:var(--text)!important}
+footer{padding:44px 48px 36px;border-top:1px solid #eee;display:flex;flex-direction:column;align-items:center;gap:16px}
+.footer-logo img{height:28px;width:auto}
+.footer-sns{display:flex;gap:24px}
+.footer-sns a{font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s}
+.footer-sns a:hover{color:var(--text)}
+.footer-copy{font-size:0.62rem;color:#ccc}
+@media(max-width:768px){nav{padding:18px 0 0}.nav-links{gap:14px}footer{padding:36px 24px}}
+
+html,body{height:100%;overflow:hidden}
+.hero{position:fixed;inset:0;background:url('/uploads/common/hero.jpg') center/cover no-repeat}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.2) 0%,rgba(0,0,0,0) 50%,rgba(0,0,0,0.25) 100%)}
+</style>
+</head>
+<body>
+<nav id="nav" class="">
+  <a href="index.html" class="nav-logo">
+    <img class="logo-w" src="/uploads/common/logo-white.png" alt="GREG &amp; MATT">
+    <img class="logo-d" src="/uploads/common/logo-dark.png" alt="GREG &amp; MATT">
+  </a>
+  <ul class="nav-links"><li><a href="about.html">about</a></li><li><a href="wedding.html">wedding</a></li><li><a href="product.html">product</a></li><li><a href="faq.html">faq</a></li><li><a href="reserve.html">reserve</a></li></ul>
+</nav>
+<div class="hero"><div class="hero-overlay"></div></div>
+<script>
+
+const nav=document.getElementById('nav');
+if(nav&&!nav.classList.contains('dark')){
+  window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60)});
+}
+
+if(window.netlifyIdentity){
+  window.netlifyIdentity.on('init',user=>{
+    if(!user){window.netlifyIdentity.on('login',()=>{document.location.href='/admin/'})};
+  });
+}
+</script>
+</body>
+</html>

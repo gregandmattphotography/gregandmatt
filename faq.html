@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>FAQ — GREG & MATT</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Sans+KR:wght@300;400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+<style>
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --white:#fff;--text:#1c1c1c;--muted:#999;--accent:#b09070;
+  --light:#f8f8f6;--serif:'Cormorant Garamond',serif;
+  --sans:'DM Sans','Noto Sans KR',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--white);color:var(--text);font-family:var(--sans)}
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;flex-direction:column;align-items:center;
+  padding:26px 0 0;transition:background 0.4s,padding 0.4s;
+}
+nav.dark,nav.scrolled{
+  background:rgba(255,255,255,0.96);backdrop-filter:blur(8px);
+  border-bottom:1px solid #eee;padding:16px 0;
+}
+.nav-logo{text-decoration:none;margin-bottom:10px;display:block}
+.nav-logo img{height:26px;width:auto}
+.logo-w{display:block}.logo-d{display:none}
+nav.dark .logo-w,nav.scrolled .logo-w{display:none}
+nav.dark .logo-d,nav.scrolled .logo-d{display:block}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{
+  font-size:0.63rem;letter-spacing:0.2em;text-transform:uppercase;
+  color:rgba(255,255,255,0.85);text-decoration:none;
+  transition:color 0.2s;font-weight:300;
+}
+nav.dark .nav-links a,nav.scrolled .nav-links a{color:var(--muted)}
+.nav-links a:hover{color:#fff}
+nav.dark .nav-links a:hover,nav.scrolled .nav-links a:hover{color:var(--text)}
+.nav-links a.active{color:#fff!important}
+nav.dark .nav-links a.active,nav.scrolled .nav-links a.active{color:var(--text)!important}
+footer{padding:44px 48px 36px;border-top:1px solid #eee;display:flex;flex-direction:column;align-items:center;gap:16px}
+.footer-logo img{height:28px;width:auto}
+.footer-sns{display:flex;gap:24px}
+.footer-sns a{font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s}
+.footer-sns a:hover{color:var(--text)}
+.footer-copy{font-size:0.62rem;color:#ccc}
+@media(max-width:768px){nav{padding:18px 0 0}.nav-links{gap:16px}footer{padding:36px 24px}}
+
+
+.faq-wrap{
+  max-width:720px;margin:0 auto;
+  padding:140px 24px 100px;
+}
+.page-label{
+  font-size:0.6rem;letter-spacing:0.32em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:12px;font-weight:300;
+}
+.page-title{
+  font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);
+  font-weight:300;margin-bottom:56px;
+}
+
+.faq-list{
+  border-top:1px solid #eee;
+}
+.faq-item{
+  border-bottom:1px solid #eee;
+}
+.faq-q{
+  width:100%;display:flex;justify-content:space-between;align-items:center;
+  padding:22px 0;background:none;border:none;cursor:pointer;
+  text-align:left;gap:16px;
+}
+.faq-q span:first-child{
+  font-family:'Noto Sans KR',sans-serif;
+  font-size:0.9rem;font-weight:400;color:var(--text);
+  line-height:1.5;
+}
+.faq-icon{
+  font-size:1.2rem;color:var(--muted);flex-shrink:0;
+  transition:transform 0.25s;font-weight:300;
+  width:20px;text-align:center;
+}
+.faq-icon.open{transform:rotate(45deg)}
+.faq-a{
+  max-height:0;overflow:hidden;
+  transition:max-height 0.35s ease, padding 0.25s;
+}
+.faq-a.open{max-height:400px;padding-bottom:24px}
+.faq-a p{
+  font-family:'Noto Sans KR',sans-serif;
+  font-size:0.85rem;font-weight:300;color:#666;
+  line-height:2;
+}
+
+.faq-cta{
+  margin-top:60px;padding:40px 32px;
+  background:var(--light);text-align:center;
+}
+.faq-cta-text{
+  font-family:'Noto Sans KR',sans-serif;
+  font-size:0.88rem;font-weight:300;color:#666;
+  line-height:2;margin-bottom:24px;
+}
+.btn-kakao{
+  display:inline-block;padding:13px 36px;
+  background:var(--text);color:#fff;text-decoration:none;
+  font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;
+  transition:opacity 0.2s;
+}
+.btn-kakao:hover{opacity:0.7}
+
+@media(max-width:768px){
+  .faq-wrap{padding:110px 16px 80px}
+  .faq-q span:first-child{font-size:0.84rem}
+}
+</style>
+</head>
+<body>
+<nav id="nav" class="dark">
+  <a href="index.html" class="nav-logo">
+    <img class="logo-w" src="/uploads/common/logo-white.png" alt="GREG &amp; MATT">
+    <img class="logo-d" src="/uploads/common/logo-dark.png" alt="GREG &amp; MATT">
+  </a>
+  <ul class="nav-links">
+    <li><a href="about.html">about</a></li>
+    <li><a href="wedding.html">wedding</a></li>
+    <li><a href="product.html">product</a></li>
+    <li><a href="faq.html" class="active">faq</a></li>
+    <li><a href="reserve.html">reserve</a></li>
+  </ul>
+</nav>
+
+<div class="faq-wrap">
+  <div class="page-label">자주 묻는 질문</div>
+  <h1 class="page-title">FAQ</h1>
+
+  <div class="faq-list">
+    
+    <div class="faq-item" id="faq-0">
+      <button class="faq-q" onclick="toggle(0)">
+        <span>일정 및 예약 가능 여부는 어떻게 확인하나요?</span>
+        <span class="faq-icon" id="icon-0">+</span>
+      </button>
+      <div class="faq-a" id="ans-0">
+        <p>웨딩홀 예약이 완료되어야 본식 스냅 예약이 가능합니다. 확정된 장소·날짜·시간을 카카오톡 채널로 알려주시면 일정을 확인한 뒤 바로 견적 안내와 상담을 드립니다.</p>
+      </div>
+    </div>
+    <div class="faq-item" id="faq-1">
+      <button class="faq-q" onclick="toggle(1)">
+        <span>촬영은 언제부터 언제까지 진행되나요?</span>
+        <span class="faq-icon" id="icon-1">+</span>
+      </button>
+      <div class="faq-a" id="ans-1">
+        <p>본식 스냅은 예식 1시간 30분 전부터 시작해 신부대기실 → 본식 → 원판사진까지 촬영합니다. 피로연과 메이크업샵 촬영은 옵션 추가가 가능하며, 메이크업샵 촬영을 하시면 샵 아웃 1시간 전부터 시작됩니다.</p>
+      </div>
+    </div>
+    <div class="faq-item" id="faq-2">
+      <button class="faq-q" onclick="toggle(2)">
+        <span>차량씬 촬영도 가능한가요?</span>
+        <span class="faq-icon" id="icon-2">+</span>
+      </button>
+      <div class="faq-a" id="ans-2">
+        <p>차량씬 촬영은 메이크업샵 촬영 옵션을 추가하신 경우에 가능합니다. 해당 옵션을 추가하지 않으신 경우에는 예정된 촬영 시간 내에서 홀에 도착하시는 경우 촬영이 가능합니다.</p>
+      </div>
+    </div>
+    <div class="faq-item" id="faq-3">
+      <button class="faq-q" onclick="toggle(3)">
+        <span>가족사진과 원판 촬영을 예식 전에 미리 찍을 수 있나요?</span>
+        <span class="faq-icon" id="icon-3">+</span>
+      </button>
+      <div class="faq-a" id="ans-3">
+        <p>직계 가족분들의 원판 선촬영은 예식이 첫 타임일 경우 가능합니다. 첫 타임이 아닌 경우에는 웨딩홀 사정에 따라 달라집니다.</p>
+      </div>
+    </div>
+    <div class="faq-item" id="faq-4">
+      <button class="faq-q" onclick="toggle(4)">
+        <span>보정은 어느 정도로 진행되나요?</span>
+        <span class="faq-icon" id="icon-4">+</span>
+      </button>
+      <div class="faq-a" id="ans-4">
+        <p>색감, 배경 정리, 인물 보정 등 꽤나 광범위하게 작업하고 있습니다. 인물 보정은 얼굴 윤곽과 크기, 어깨와 팔, 허리, 키, 피부 등 다양하고 세심하게 하고 있습니다. 다만 어색하지 않은 정도로 '자연스럽게 예쁜 내 모습이 살아있는 수준'으로 보정합니다. 그렉앤맷은 외부 보정 업체를 고용하지 않으며 모든 사진은 대표 2인이 직접 보정합니다.</p>
+      </div>
+    </div>
+    <div class="faq-item" id="faq-5">
+      <button class="faq-q" onclick="toggle(5)">
+        <span>사진은 직접 셀렉할 수 있나요? 추가 비용이 발생하나요?</span>
+        <span class="faq-icon" id="icon-5">+</span>
+      </button>
+      <div class="faq-a" id="ans-5">
+        <p>그렉앤맷은 모든 과정에서 직접 셀렉을 기본으로 하고 있습니다. 촬영 후 약 4주 시점에 원본을 전달드리며 원하시는 사진을 직접 고르시면 바로 다음날부터 작업이 진행됩니다. 셀렉에 따른 추가 비용은 전혀 발생하지 않습니다.</p>
+      </div>
+    </div>
+    <div class="faq-item" id="faq-6">
+      <button class="faq-q" onclick="toggle(6)">
+        <span>셀렉은 언제까지 해야 하나요?</span>
+        <span class="faq-icon" id="icon-6">+</span>
+      </button>
+      <div class="faq-a" id="ans-6">
+        <p>원본을 받으신 후 1개월 이내에 셀렉해 주시면 이후 작업 일정에 차질이 없습니다. 셀렉 기한은 예식일로부터 12개월로 정하며 해당 기한이 지나면 계약이 종료됩니다.</p>
+      </div>
+    </div>
+    <div class="faq-item" id="faq-7">
+      <button class="faq-q" onclick="toggle(7)">
+        <span>원본은 따로 구매해야 하나요?</span>
+        <span class="faq-icon" id="icon-7">+</span>
+      </button>
+      <div class="faq-a" id="ans-7">
+        <p>원본은 무료로 제공해 드립니다.</p>
+      </div>
+    </div>
+    <div class="faq-item" id="faq-8">
+      <button class="faq-q" onclick="toggle(8)">
+        <span>예식 후 원본은 언제 받을 수 있나요?</span>
+        <span class="faq-icon" id="icon-8">+</span>
+      </button>
+      <div class="faq-a" id="ans-8">
+        <p>3차에 걸친 데이터 보관 과정을 거친 후, 예식 약 4주 시점에 이메일로 원본 클라우드 링크를 발송해 드립니다.</p>
+      </div>
+    </div>
+    <div class="faq-item" id="faq-9">
+      <button class="faq-q" onclick="toggle(9)">
+        <span>원본은 몇 장 정도 촬영되나요?</span>
+        <span class="faq-icon" id="icon-9">+</span>
+      </button>
+      <div class="faq-a" id="ans-9">
+        <p>예식 시간과 진행 상황에 따라 유동적이지만, 대기실부터 진행하시는 경우 대략 2,000~3,000컷 내외로 촬영되며, 2인 작가 촬영의 경우엔 약 5,000~6,000컷 내외로 촬영됩니다.</p>
+      </div>
+    </div>
+    <div class="faq-item" id="faq-10">
+      <button class="faq-q" onclick="toggle(10)">
+        <span>사진에 그렉앤맷 워터마크가 찍혀서 나오나요?</span>
+        <span class="faq-icon" id="icon-10">+</span>
+      </button>
+      <div class="faq-a" id="ans-10">
+        <p>보내드리는 사진에는 워터마크 없이 제공됩니다.</p>
+      </div>
+    </div>
+    <div class="faq-item" id="faq-11">
+      <button class="faq-q" onclick="toggle(11)">
+        <span>앨범은 몇 페이지로 제작되나요?</span>
+        <span class="faq-icon" id="icon-11">+</span>
+      </button>
+      <div class="faq-a" id="ans-11">
+        <p>앨범은 총 3권으로 제공됩니다. 신랑 신부님용 1권, 양가 부모님용 2권이며 동일한 페이지 수로 제공됩니다. 커버는 고급 풀그레인 원단, 내지는 후지 크리스탈 아카이브 딥 매트 용지를 사용합니다.</p>
+      </div>
+    </div>
+    <div class="faq-item" id="faq-12">
+      <button class="faq-q" onclick="toggle(12)">
+        <span>타 업체 서브 스냅을 추가해도 되나요?</span>
+        <span class="faq-icon" id="icon-12">+</span>
+      </button>
+      <div class="faq-a" id="ans-12">
+        <p>경험이 많고 꾸준히 본식 촬영을 해오신 전문 작가라면 문제가 없습니다. 다만 경험이 부족하신 분들의 경우 전반적인 결과물에 좋지 않은 영향을 줄 수 있습니다.</p>
+      </div>
+    </div>
+    <div class="faq-item" id="faq-13">
+      <button class="faq-q" onclick="toggle(13)">
+        <span>출장비는 어느 정도일까요?</span>
+        <span class="faq-icon" id="icon-13">+</span>
+      </button>
+      <div class="faq-a" id="ans-13">
+        <p>서울 이외 지역은 최소 10만 원부터 시작하고, 가장 먼 지역도 30만 원을 넘지 않도록 책정하고 있습니다. 2인 작가 촬영 시에도 출장비는 1인 기준과 동일합니다.</p>
+      </div>
+    </div>
+    <div class="faq-item" id="faq-14">
+      <button class="faq-q" onclick="toggle(14)">
+        <span>예약은 어떻게 하나요?</span>
+        <span class="faq-icon" id="icon-14">+</span>
+      </button>
+      <div class="faq-a" id="ans-14">
+        <p>충분한 상담 후 예약을 원하시면 예약신청 링크를 보내드립니다. 필요한 정보를 입력하고 예약금을 입금해 주시면 계약서를 작성해 이메일로 발송해 드립니다. 예약금 환불은 입금 후 72시간 이내 요청 시 가능합니다.</p>
+      </div>
+    </div>
+    <div class="faq-item" id="faq-15">
+      <button class="faq-q" onclick="toggle(15)">
+        <span>계약 후 추가 금액이 발생할 수 있나요?</span>
+        <span class="faq-icon" id="icon-15">+</span>
+      </button>
+      <div class="faq-a" id="ans-15">
+        <p>최초 계약 시 안내드리는 부분 외 추가 금액은 전혀 없으며, 마지막 앨범 배송비까지 저희가 직접 처리하고 있습니다.</p>
+      </div>
+    </div>
+    <div class="faq-item" id="faq-16">
+      <button class="faq-q" onclick="toggle(16)">
+        <span>결과물은 언제쯤 받을 수 있나요?</span>
+        <span class="faq-icon" id="icon-16">+</span>
+      </button>
+      <div class="faq-a" id="ans-16">
+        <p>원본은 예식 후 한 달 안에 이메일로 보내드립니다. 셀렉 완료 후 4개월의 보정 기간이 소요되며, 보정 완료 후 앨범·인화물·포스터·액자 등 제작과 배송까지 약 3주가 소요됩니다.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-cta">
+    <p class="faq-cta-text">
+      더 궁금하신 점이 있으시면 언제든지 편하게 문의해 주세요.<br>
+      카카오톡 채널로 빠르게 답변 드리겠습니다.
+    </p>
+    <a href="https://pf.kakao.com/_DQwxgT/chat" target="_blank" class="btn-kakao">카카오톡 채널 문의하기</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo"><img src="/uploads/common/logo-dark.png" alt="GREG &amp; MATT"></div>
+  <div class="footer-sns">
+    <a href="https://pf.kakao.com/_DQwxgT/chat" target="_blank">kakao</a>
+    <a href="http://instagram.com/gregandmatt" target="_blank">instagram</a>
+    <a href="https://blog.naver.com/gregandmatt" target="_blank">naver blog</a>
+  </div>
+  <div class="footer-copy">copyright © gregandmatt.com all rights reserved</div>
+</footer>
+
+<script>
+
+const nav=document.getElementById('nav');
+if(nav&&!nav.classList.contains('dark')){
+  window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60)});
+}
+
+function toggle(i){
+  const ans = document.getElementById('ans-'+i);
+  const icon = document.getElementById('icon-'+i);
+  const isOpen = ans.classList.contains('open');
+  // 모두 닫기
+  document.querySelectorAll('.faq-a').forEach(el=>el.classList.remove('open'));
+  document.querySelectorAll('.faq-icon').forEach(el=>el.classList.remove('open'));
+  // 클릭한 것만 토글
+  if(!isOpen){
+    ans.classList.add('open');
+    icon.classList.add('open');
+  }
+}
+</script>
+</body>
+</html>
