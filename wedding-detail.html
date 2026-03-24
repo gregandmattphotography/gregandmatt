@@ -34,7 +34,7 @@ footer{padding:44px 48px 36px;border-top:1px solid #eee;display:flex;flex-direct
 .footer-copy{font-size:0.62rem;color:#ccc}
 @media(max-width:768px){nav{padding:18px 0 0}.nav-links{gap:14px}footer{padding:36px 24px}}
 
-.detail-wrap{max-width:860px;margin:0 auto;padding:110px 24px 100px}
+.detail-wrap{max-width:860px;margin:0 auto;padding:100px 0 80px}
 .detail-back{display:inline-block;margin-bottom:28px;font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s}
 .detail-back:hover{color:var(--text)}
 .detail-header{margin-bottom:40px;padding-bottom:24px;border-bottom:1px solid #eee}
@@ -42,8 +42,7 @@ footer{padding:44px 48px 36px;border-top:1px solid #eee;display:flex;flex-direct
 .detail-title{font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:300}
 .photo-grid{display:flex;flex-direction:column;gap:6px;margin-bottom:60px}
 .photo-grid img{width:100%;display:block}
-.photo-row{display:grid;grid-template-columns:1fr 1fr;gap:6px}
-.photo-row img{width:100%;display:block}
+
 .detail-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:32px;border-top:1px solid #eee}
 .detail-bottom a{font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s}
 .detail-bottom a:hover{color:var(--text)}
@@ -98,17 +97,7 @@ fetch(`/data/weddings/${id}.json`)
     document.getElementById('hall-name').textContent = data.name;
     const grid = document.getElementById('photo-grid');
     const photos = data.photos;
-    let html = '';
-    let i = 0;
-    while(i < photos.length){
-      if(i+1 < photos.length && i%3 !== 0){
-        html += `<div class="photo-row"><img src="${photos[i]}" loading="lazy"><img src="${photos[i+1]}" loading="lazy"></div>`;
-        i+=2;
-      } else {
-        html += `<img src="${photos[i]}" loading="lazy">`;
-        i+=1;
-      }
-    }
+    let html = photos.map(p=>`<img src="${p}" loading="lazy">`).join('');
     grid.innerHTML = html;
   })
   .catch(()=>{ location.href='wedding.html'; });
